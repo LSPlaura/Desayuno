@@ -1,0 +1,14 @@
+C:\Users\laura\RiderProjects\Desayuno\bin\Debug\net10.0\Desayuno.exe
+C:\Users\laura\RiderProjects\Desayuno\bin\Debug\net10.0\Desayuno.deps.json
+C:\Users\laura\RiderProjects\Desayuno\bin\Debug\net10.0\Desayuno.runtimeconfig.json
+C:\Users\laura\RiderProjects\Desayuno\bin\Debug\net10.0\Desayuno.dll
+C:\Users\laura\RiderProjects\Desayuno\bin\Debug\net10.0\Desayuno.pdb
+C:\Users\laura\RiderProjects\Desayuno\obj\Debug\net10.0\Desayuno.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laura\RiderProjects\Desayuno\obj\Debug\net10.0\Desayuno.AssemblyInfoInputs.cache
+C:\Users\laura\RiderProjects\Desayuno\obj\Debug\net10.0\Desayuno.AssemblyInfo.cs
+C:\Users\laura\RiderProjects\Desayuno\obj\Debug\net10.0\Desayuno.csproj.CoreCompileInputs.cache
+C:\Users\laura\RiderProjects\Desayuno\obj\Debug\net10.0\Desayuno.dll
+C:\Users\laura\RiderProjects\Desayuno\obj\Debug\net10.0\refint\Desayuno.dll
+C:\Users\laura\RiderProjects\Desayuno\obj\Debug\net10.0\Desayuno.pdb
+C:\Users\laura\RiderProjects\Desayuno\obj\Debug\net10.0\Desayuno.genruntimeconfig.cache
+C:\Users\laura\RiderProjects\Desayuno\obj\Debug\net10.0\ref\Desayuno.dll
