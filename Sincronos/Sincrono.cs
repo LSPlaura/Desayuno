@@ -1,10 +1,10 @@
 using System.Diagnostics;
 
-namespace Desayuno;
+namespace Desayuno.Sincronos;
 
 public class Sincrono
 {
-    public void PrepararDesayunoSincrono()
+    public void PrepararDesayuno()
     {
         Stopwatch cronometro = new Stopwatch();
         cronometro.Start();
@@ -21,30 +21,37 @@ public class Sincrono
     }
     void HacerCafe()
     {
-        Thread.Sleep(3000);
+        Thread.Sleep(200);
     }
+
     void Cocinar()
     {
-        Thread.Sleep(3000);
+        Thread.Sleep(200);
     }
+
     void FreirHuevos()
     {
-        Thread.Sleep(4000);
+        Thread.Sleep(300);
     }
+
     void FreirBacon()
     {
         Thread.Sleep(3000);
     }
+
     void TostarPan()
     {
-        Thread.Sleep(3000);
+        Thread.Sleep(200);
+        UntarMermelada();
     }
+
     void UntarMermelada()
     {
-        Thread.Sleep(1000);
+        Thread.Sleep(100);
     }
+
     void VertirZumo()
     {
-        Thread.Sleep(2000);
+        Thread.Sleep(200);
     }
 }

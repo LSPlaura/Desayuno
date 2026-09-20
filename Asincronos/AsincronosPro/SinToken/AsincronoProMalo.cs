@@ -1,25 +1,33 @@
 using System.Diagnostics;
 
-namespace Desayuno;
+namespace Desayuno.Asincronos.AsincronosPro.SinToken;
 
-public class AsincronMalo
+public class AsincronoProMalo
 {
     public async Task PrepararDesayuno()
     {
         Stopwatch cronometro = new Stopwatch();
         cronometro.Start();
-        await HacerCafe();
-        await Cocinar();
-        await FreirHuevos();
-        await FreirBacon();
-        await TostarPan();
-        await UntarMermelada();
-        await VertirZumo();
+        var tareas = new List<Func<Task>>
+        {
+            HacerCafe,
+            Cocinar,
+            FreirHuevos,
+            FreirBacon,
+            TostarPan,
+            UntarMermelada,
+            VertirZumo
+        };
+        
+        await Parallel.ForEachAsync(tareas, async (accion, _) =>
+        {
+            await accion();
+        }); 
         cronometro.Stop();
         TimeSpan tiempoTranscurrido = cronometro.Elapsed;
-        Console.WriteLine($"Ha tardado: {tiempoTranscurrido} ");
+        Console.WriteLine($"Ha tardado: {tiempoTranscurrido}");
     }
-
+    
     async Task HacerCafe()
     {
         await Task.Delay(200);

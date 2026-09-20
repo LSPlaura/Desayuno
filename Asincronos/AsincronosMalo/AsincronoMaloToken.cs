@@ -2,27 +2,30 @@ using System.Diagnostics;
 
 namespace Desayuno;
 
-public class AsincronoPro
+public class AsincronoMaloToken
 {
-    public async Task PrepararDesayunoAsincronoPro()
+    public async Task PrepararDesayuno()
     {
-        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5)); 
+        using var cts = new CancellationTokenSource(TimeSpan.FromMilliseconds(500)); 
         Stopwatch cronometro = new Stopwatch();
         cronometro.Start();
-
         try
         {
+            await HacerCafe(cts.Token);
             await Cocinar(cts.Token);
-            
+            await FreirHuevos(cts.Token);
+            await FreirBacon(cts.Token);
+            await TostarPan(cts.Token);
+            await UntarMermelada(cts.Token);
+            await VertirZumo(cts.Token);
             cronometro.Stop();
             TimeSpan tiempoTranscurrido = cronometro.Elapsed;
-            Console.WriteLine("Hecho :)");
-            Console.WriteLine($"Ha tardado: {tiempoTranscurrido}");
+            Console.WriteLine($"Ha tardado: {tiempoTranscurrido} ");
         }
         catch (OperationCanceledException)
         {
             cronometro.Stop();
-            Console.WriteLine($"¡Se acabó el tiempo! El desayuno tardó más de 5 segundos. (Transcurrido: {cronometro.Elapsed})");
+            Console.WriteLine($"¡Se acabó el tiempo! El desayuno tardó más de 500 milisegundos. (Transcurrido: {cronometro.Elapsed})");
         }
     }
 
@@ -34,7 +37,6 @@ public class AsincronoPro
     async Task Cocinar(CancellationToken ct)
     {
         await Task.Delay(200, ct);
-        await Task.WhenAll(HacerCafe(ct), FreirHuevos(ct), FreirBacon(ct), TostarPan(ct), VertirZumo(ct));
     }
 
     async Task FreirHuevos(CancellationToken ct)
@@ -50,7 +52,6 @@ public class AsincronoPro
     async Task TostarPan(CancellationToken ct)
     {
         await Task.Delay(200, ct);
-        await UntarMermelada(ct);
     }
 
     async Task UntarMermelada(CancellationToken ct)

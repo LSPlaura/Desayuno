@@ -1,23 +1,19 @@
 using System.Diagnostics;
 
-namespace Desayuno;
+namespace Desayuno.Asincronos.AsincronosPro.SinToken;
 
-public class AsincronMalo
+public class AsincronoProBueno
 {
     public async Task PrepararDesayuno()
     {
         Stopwatch cronometro = new Stopwatch();
         cronometro.Start();
-        await HacerCafe();
+
         await Cocinar();
-        await FreirHuevos();
-        await FreirBacon();
-        await TostarPan();
-        await UntarMermelada();
-        await VertirZumo();
+            
         cronometro.Stop();
         TimeSpan tiempoTranscurrido = cronometro.Elapsed;
-        Console.WriteLine($"Ha tardado: {tiempoTranscurrido} ");
+        Console.WriteLine($"Ha tardado: {tiempoTranscurrido}");
     }
 
     async Task HacerCafe()
@@ -28,6 +24,7 @@ public class AsincronMalo
     async Task Cocinar()
     {
         await Task.Delay(200);
+        await Task.WhenAll(HacerCafe(), FreirHuevos(), FreirBacon(), TostarPan(), VertirZumo());
     }
 
     async Task FreirHuevos()
@@ -43,6 +40,7 @@ public class AsincronMalo
     async Task TostarPan()
     {
         await Task.Delay(200);
+        await UntarMermelada();
     }
 
     async Task UntarMermelada()
